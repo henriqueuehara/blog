@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div>
+        <h1 style="color:orange">Orion Capital</h1>
+        <h2 style="color:lightgray">Melhores serviços para investidores</h2>
+        <hr>
+        {% for post in posts %}
+        <div class="row border mt-4 p-2 meupost">
+            <div class="col-2">
+                <div class="image pe-2">
+                    <img src="{{ url_for('static', filename='fotos_perfil/{}'.format(post.autor.foto_perfil)) }}" class="rounded" width="200">
+                </div>
+                <strong class="">@{{ post.autor.username }}</strong>
+                <div class="row justify-content-center text-center">
+                    {% for classe in post.autor.classes_ativos.split(';') %}
+                        <button type="button" class="btn btn-success mt-2" disabled>{{ classe }}</button>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-9">
+                    <h3>
+                        <a style="text-decoration:none;color:orange" href="{{ url_for('exibir_post', post_id=post.id) }}">
+                            {{ post.titulo }}
+                        </a>
+                        <small class="text-muted" style="font-size: 15px">
+                             - Data de criação: {{ post.data_criacao.strftime('%d-%m-%Y') }}
+                        </small>
+                    </h3>
+                <p>{{ post.corpo }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

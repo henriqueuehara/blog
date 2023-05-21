@@ -1,0 +1,16 @@
+{
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "python.linting.pylintArgs": [
+    "--disable=missing-module-docstring",
+    "--disable=missing-class-docstring",
+    "--disable=missing-function-docstring",
+    "--load-plugins",
+    "pylint_flask_sqlalchemy",
+    "pylint_flask"
+  ],
+  "python.pythonPath": "D:\\Anaconda\\envs\\meuprimeirosite\\python.exe",
+  "python.terminal.activateEnvironment": true,
+  "editor.formatOnSave": false,
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
+}
